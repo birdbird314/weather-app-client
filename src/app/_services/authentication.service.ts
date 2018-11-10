@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +8,7 @@ export class AuthenticationService {
   constructor() { }
 
   login(username: string, password: string) {
+    console.log(username + password);
     localStorage.setItem('currentUser', username);
   }
 

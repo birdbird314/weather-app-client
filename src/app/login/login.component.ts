@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from '../_services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +12,32 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    private authService: AuthenticationService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) { 
+    if (this.authService.isLoggedIn()) { 
+      this.router.navigate(['/']);
+    }
   }
 
-  get f() { return this.loginForm.controls; }
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+        username: ['', Validators.required],
+        password: ['', Validators.required]
+    });
+  }
+
+  get form() { return this.loginForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-    return;
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.authService.login(this.form.username.value, this.form.password.value);
+    this.router.navigate(['/']);
   }
 }
