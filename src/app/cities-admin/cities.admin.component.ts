@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { City } from '../_models/city';
 import { WeatherApiClient } from '../_services/weather.api.client';
-import { AuthenticationService } from '../_services/authentication.service';
 import { AdminApiClient } from '../_services/admin.api.client';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-cities-admin',
+  templateUrl: './cities.admin.component.html',
+  styleUrls: ['./cities.admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class CitiesAdminComponent implements OnInit {
   addCityForm: FormGroup;
   cities: City[];
   adding: boolean;
