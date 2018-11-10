@@ -10,6 +10,7 @@
     </div>
   </div>
 </div>
+
 <div *ngIf="city && weather" class="row mt-4">
   <div class="card offset-md-3 col-md-4">
     <div class="card-body">
@@ -23,5 +24,14 @@
       </div>
       <a href="#" class="card-link text-secondary" (click)="getWeather()">Refresh</a>
     </div>
+  </div>
+</div>
+
+<div *ngIf="isAdmin" class="row mt-5">
+  <div class="offset-md-3">
+    <p class="text-warning">
+      Oh la la! Seems like we have an admin here! <br>
+      Checkout our <a href="/admin">admin pannel</a>
+    </p>
   </div>
 </div>
