@@ -11,7 +11,7 @@ const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
-    { path: 'forbidden', component: ForbiddenComponent }
+    { path: 'forbidden', component: ForbiddenComponent },
     { path: 'register', component: RegisterComponent }
 ];
 

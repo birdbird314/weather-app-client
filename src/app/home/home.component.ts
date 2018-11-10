@@ -30,11 +30,9 @@ export class HomeComponent implements OnInit {
   }
 
   setCity(city: City): void {
-    this.city = city;
-    this.getWeather();
-  }
-
-  getWeather() {
-    this.weatherApiClient.getWeather(this.city).subscribe(weather => this.weather = weather);
+    this.weatherApiClient.getWeather(city).subscribe(weather => {
+      this.weather = weather
+      this.city = city;
+    });
   }
 }
