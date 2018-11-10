@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../_services/authentication.service';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { RefreshHeaderService } from '../_services/refresh.header.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private refreshHeader: RefreshHeaderService
   ) { 
     if (this.authService.isLoggedIn()) { 
       this.router.navigate(['/']);
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this.refreshHeader.refresh();
           this.router.navigate(['/']);
         },
         error => {

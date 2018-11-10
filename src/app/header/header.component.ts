@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services/authentication.service';
 import { Router } from '@angular/router';
+import { RefreshHeaderService } from '../_services/refresh.header.service';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +14,16 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private refreshHeader: RefreshHeaderService
   ) { }
 
   ngOnInit() {
+    this.getIsLoggedIn();
+    this.refreshHeader.refreshEmitter.subscribe(_ => this.getIsLoggedIn());
+  }
+
+  getIsLoggedIn() {
     this.isLoggedIn = this.authService.isLoggedIn();
   }
 
