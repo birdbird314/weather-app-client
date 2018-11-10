@@ -12,6 +12,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { CitiesAdminComponent } from './cities-admin/cities.admin.component';
 import { AdminComponent } from './admin/admin.component';
 import { WeatherProvidersAdminComponent } from './weather-providers-admin/weather-providers-admin.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { WeatherProvidersAdminComponent } from './weather-providers-admin/weathe
     ForbiddenComponent,
     AdminComponent,
     WeatherProvidersAdminComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
