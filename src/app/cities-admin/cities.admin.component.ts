@@ -55,13 +55,7 @@ export class CitiesAdminComponent implements OnInit {
     } 
     this.adminApiClient.addCity(this.form.name.value, this.form.countryCode.value).subscribe(_ => {
       this.stopAdding();
-      this.clearForm();
       this.getCities();
     })
-  }
-
-  private clearForm() {
-    this.form.name.value = '';
-    this.form.countryCode.value = '';
   }
 }
