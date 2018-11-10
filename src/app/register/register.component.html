@@ -1,5 +1,6 @@
-<div class="row">
-  <form class="col-md-6 offset-md-3 mt-5" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="row mt-5">
+  <h3 class="offset-md-3 text-secondary pl-md-3">Register:</h3> 
+  <form class="col-md-6 offset-md-3 mt-2" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="username">Username</label>
       <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'invalid': submitted && form.username.errors }" />
