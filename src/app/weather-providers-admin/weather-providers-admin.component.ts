@@ -31,7 +31,8 @@ export class WeatherProvidersAdminComponent implements OnInit {
   }
 
   getProviders(): void {
-    this.providers = ['Yahoo', 'OpenWeatherMap', 'Baca'];
+    this.adminApiClient.getWeatherProviders()
+      .subscribe(providers => this.providers = providers);
   }
 
   get form() { return this.providerForm.controls; }
