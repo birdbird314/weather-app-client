@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { CitiesAdminComponent } from './cities-admin/cities.admin.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CitiesAdminComponent } from './cities-admin/cities.admin.component';
     HomeComponent,
     CitiesAdminComponent,
     ForbiddenComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
