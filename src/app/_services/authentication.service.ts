@@ -32,6 +32,7 @@ export class AuthenticationService {
     return this.authApiClient.logout()
       .pipe(map(data => {
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('isAdmin');
         return data;
       }));
   }
