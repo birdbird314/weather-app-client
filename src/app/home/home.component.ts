@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { City } from '../_models/city';
 import { WeatherApiClient } from '../_services/weather.api.client';
+import { Weather } from '../_models/weather';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,14 @@ import { WeatherApiClient } from '../_services/weather.api.client';
 export class HomeComponent implements OnInit {
   cities: City[];
   city: City;
+  weather: Weather;
   user: string;
 
   constructor(private weatherApiClient: WeatherApiClient) { }
 
   ngOnInit() {
     this.getCities();
+    this.getWeather();
   }
 
   getCities(): void {
@@ -24,5 +27,14 @@ export class HomeComponent implements OnInit {
 
   setCity(city: City): void {
     this.city = city;
+  }
+
+  getWeather() {
+    this.weather = {
+      temperature: 20,
+      humidity: 40,
+      pressure: 10200,
+      windSpeed: 12
+    }
   }
 }

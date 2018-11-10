@@ -9,5 +9,19 @@
       </a>
     </div>
   </div>
-  <h5 *ngIf="city" class="text-secondary col-md-6">Current city: {{ city.name }}, {{ city.countryCode }}</h5>
+</div>
+<div *ngIf="city && weather" class="row mt-4">
+  <div class="card offset-md-3 col-md-4">
+    <div class="card-body">
+      <h5 class="card-title">{{ city.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ city.countryCode }}</h6>
+      <div class="weather-info mb-1">
+        <p class="card-text text-info">Temperature: <span class="font-weight-bold">{{ weather.temperature }}°C</span></p>
+        <p class="card-text text-info">Humidity: <span class="font-weight-bold">{{ weather.humidity }}%</span></p>
+        <p class="card-text text-info">Pressure: <span class="font-weight-bold">{{ weather.pressure }} hPa</span></p>
+        <p class="card-text text-info">Wind: <span class="font-weight-bold">{{ weather.windSpeed }} km/h</span></p>
+      </div>
+      <a href="#" class="card-link text-secondary" (click)="getWeather()">Refresh</a>
+    </div>
+  </div>
 </div>
