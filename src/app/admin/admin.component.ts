@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { City } from '../_models/city';
 import { WeatherApiClient } from '../_services/weather.api.client';
 import { AuthenticationService } from '../_services/authentication.service';
+import { AdminApiClient } from '../_services/admin.api.client';
 
 @Component({
   selector: 'app-admin',
@@ -14,7 +15,7 @@ export class AdminComponent implements OnInit {
 
   constructor(
     private weatherApiClient: WeatherApiClient,
-    private authService: AuthenticationService
+    private adminApiClient: AdminApiClient
   ) { }
 
   ngOnInit() {
@@ -32,5 +33,11 @@ export class AdminComponent implements OnInit {
 
   stopAdding(): void {
     this.adding = false;
+  }
+
+  remove(city: City) {
+    this.adminApiClient.removeCity(city.id).subscribe(_ => {
+      this.cities = this.cities.filter(c => c != city)
+    });
   }
 }
