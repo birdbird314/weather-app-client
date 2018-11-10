@@ -9,6 +9,7 @@ import { routing } from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     HomeComponent,
     AdminComponent,
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,
