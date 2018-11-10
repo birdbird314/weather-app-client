@@ -21,8 +21,14 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
-    this.isLoggedIn = false;
-    this.router.navigate(['/login']);
+    this.authService.logout().subscribe(
+      data => {
+        this.isLoggedIn = false;
+        this.router.navigate(['/login']);
+      },
+      error => {
+
+      }
+    );
   }
 }
