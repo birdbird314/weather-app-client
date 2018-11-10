@@ -1,0 +1,12 @@
+li div {
+  display: inline-block;
+}
+
+.remove-task {
+  cursor: pointer;
+  transition: opacity .5s;
+}
+
+.remove-task:hover {
+  opacity: 0.5;
+}
