@@ -15,6 +15,7 @@
     <form [formGroup]="addCityForm" (ngSubmit)="add()">
       <input type="text" autocomplete="off" class="form-control" formControlName="name" placeholder="city name">
       <input type="text" autocomplete="off" class="form-control" formControlName="countryCode" placeholder="country code">
+      <p class="pl-1 pt-2">Country code needs to be compliant with <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2</a></p>
       <div class="mt-2 float-right">
         <button type="submit" class="btn btn-sm btn-outline-info">add</button>
         <button class="btn btn-sm btn-outline-warning ml-2" (click)="stopAdding()">discard</button>
