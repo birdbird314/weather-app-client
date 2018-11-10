@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { City } from '../_models/city';
+import { Weather } from '../_models/weather';
 
 const httpOptions = {
     withCredentials: true
@@ -20,5 +21,10 @@ export class WeatherApiClient {
   allCities(): Observable<City[]> {
     let url = this.baseUrl + '/city/all'
     return this.http.get<City[]>(url, httpOptions); 
+  }
+
+  getWeather(city: City): Observable<Weather> {
+    let url = this.baseUrl + '/weather?cityId=' + city.id;
+    return this.http.get<Weather>(url, httpOptions); 
   }
 }

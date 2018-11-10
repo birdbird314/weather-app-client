@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getCities();
-    this.getWeather();
   }
 
   getCities(): void {
@@ -27,14 +26,10 @@ export class HomeComponent implements OnInit {
 
   setCity(city: City): void {
     this.city = city;
+    this.getWeather();
   }
 
   getWeather() {
-    this.weather = {
-      temperature: 20,
-      humidity: 40,
-      pressure: 10200,
-      windSpeed: 12
-    }
+    this.weatherApiClient.getWeather(this.city).subscribe(weather => this.weather = weather);
   }
 }
