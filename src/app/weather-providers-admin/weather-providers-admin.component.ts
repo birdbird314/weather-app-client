@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { AdminApiClient } from '../_services/admin.api.client';
 
 @Component({
   selector: 'app-weather-providers-admin',
@@ -12,7 +13,8 @@ export class WeatherProvidersAdminComponent implements OnInit {
   providers: string[];
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private adminApiClient: AdminApiClient
   ) { }
 
   ngOnInit() {
@@ -24,7 +26,8 @@ export class WeatherProvidersAdminComponent implements OnInit {
   }
 
   getCurrentProvider(): void {
-    this.currentProvider = 'Baca';
+    this.adminApiClient.getCurrentWeatherProvider()
+      .subscribe(provider => this.currentProvider = provider);
   }
 
   getProviders(): void {

@@ -32,4 +32,9 @@ export class AdminApiClient {
         .set('countryCode', countryCode), 
       httpOptions);
   }
+
+  getCurrentWeatherProvider(): Observable<string> {
+    let url = this.baseUrl + '/admin/provider/current';
+    return this.http.get<string>(url, httpOptions); 
+  }
 }
