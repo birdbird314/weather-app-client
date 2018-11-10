@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
+  withCredentials: true,
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded'
   })
