@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   cities: City[];
   city: City;
   weather: Weather;
+  fetchFailed: boolean;
   isAdmin: boolean;
 
   constructor(
@@ -30,9 +31,24 @@ export class HomeComponent implements OnInit {
   }
 
   setCity(city: City): void {
-    this.weatherApiClient.getWeather(city).subscribe(weather => {
-      this.weather = weather
-      this.city = city;
-    });
+    this.getWeather(city)
+  }
+
+  refreshWeather(): void {
+    this.getWeather(this.city);
+  }
+
+  getWeather(city: City) {
+    this.weatherApiClient.getWeather(city).subscribe(
+      weather => {
+        this.fetchFailed = false;
+        this.weather = weather
+        this.city = city;
+      },
+      error => {
+        this.city = city;
+        this.fetchFailed = true;
+      }
+    );
   }
 }
