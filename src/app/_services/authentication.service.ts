@@ -40,4 +40,8 @@ export class AuthenticationService {
   isAdmin(): boolean {
     return localStorage.getItem('isAdmin') === 'true';
   }
+
+  register(username: string, password: string): Observable<any> {
+    return this.authApiClient.register(username, password);
+  }
 }

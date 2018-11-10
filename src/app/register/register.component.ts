@@ -49,5 +49,9 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid || this.passwordsDoNotMatch) {
       return;
     }
+    this.authService.register(this.form.username.value, this.form.password.value)
+      .subscribe(_ => {
+        this.router.navigate(['login']);
+      })
   }
 }

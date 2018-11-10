@@ -31,4 +31,12 @@ export class AuthApiClient {
     let url = this.baseUrl + '/logout';
     return this.http.post<any>(url, '', httpOptions);
   }
+
+  register(username: string, password: string): Observable<any> {
+    let url = this.baseUrl + '/register'
+    let params = new HttpParams()
+      .set('username', username)
+      .set('password', password);
+    return this.http.post<User>(url, params, httpOptions);
+  }
 }
