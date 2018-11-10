@@ -22,4 +22,14 @@ export class AdminApiClient {
     let url = this.baseUrl + '/admin/city/remove/' + cityId;
     return this.http.post<any>(url, '', httpOptions);
   }
+
+  addCity(name, countryCode): Observable<any> {
+    let url = this.baseUrl + '/admin/city/add';
+    return this.http.post<any>(
+      url, 
+      new HttpParams()
+        .set('name', name)
+        .set('countryCode', countryCode), 
+      httpOptions);
+  }
 }

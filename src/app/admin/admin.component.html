@@ -12,9 +12,9 @@
 
 <ul *ngIf="adding" class="list-group mt-4 col-md-6 offset-md-3">
   <li class="list-group-item">
-    <form>
-      <input type="text" autocomplete="off" class="form-control" name="name" placeholder="city name">
-      <input type="text" autocomplete="off" class="form-control" name="countryCode" placeholder="country code">
+    <form [formGroup]="addCityForm" (ngSubmit)="add()">
+      <input type="text" autocomplete="off" class="form-control" formControlName="name" placeholder="city name">
+      <input type="text" autocomplete="off" class="form-control" formControlName="countryCode" placeholder="country code">
       <div class="mt-2 float-right">
         <button type="submit" class="btn btn-sm btn-outline-info">add</button>
         <button class="btn btn-sm btn-outline-warning ml-2" (click)="stopAdding()">discard</button>
