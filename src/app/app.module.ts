@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { routing } from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     LoginComponent,
     HomeComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
