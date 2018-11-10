@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { CitiesAdminComponent } from './cities-admin/cities.admin.component';
 import { AdminComponent } from './admin/admin.component';
+import { WeatherProvidersAdminComponent } from './weather-providers-admin/weather-providers-admin.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AdminComponent } from './admin/admin.component';
     CitiesAdminComponent,
     ForbiddenComponent,
     AdminComponent,
+    WeatherProvidersAdminComponent,
   ],
   imports: [
     BrowserModule,
