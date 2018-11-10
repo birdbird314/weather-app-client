@@ -42,4 +42,14 @@ export class AdminApiClient {
     let url = this.baseUrl + '/admin/provider/all';
     return this.http.get<string[]>(url, httpOptions); 
   }
+
+  changeProvider(provider): Observable<any> {
+    let url = this.baseUrl + '/admin/provider/current';
+    return this.http.post<any>(
+      url,
+      new HttpParams()
+        .set('key', provider),
+      httpOptions
+    );
+  }
 }

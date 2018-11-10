@@ -38,5 +38,10 @@ export class WeatherProvidersAdminComponent implements OnInit {
   get form() { return this.providerForm.controls; }
 
   changeProvider(): void {
+    this.adminApiClient.changeProvider(this.form.provider.value)
+      .subscribe(_ => {
+        this.getCurrentProvider();
+        this.getProviders();
+      });
   }
 }
