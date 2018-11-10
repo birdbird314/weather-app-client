@@ -19,4 +19,8 @@ export class AuthenticationService {
       return false;
     }
   }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+  }
 }
