@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from '../_models/user';
 
 const httpOptions = {
   withCredentials: true,
@@ -18,12 +19,12 @@ export class AuthApiClient {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<User> {
     let url = this.baseUrl + '/login'
     let params = new HttpParams()
       .set('username', username)
       .set('password', password);
-    return this.http.post<any>(url, params, httpOptions);
+    return this.http.post<User>(url, params, httpOptions);
   }
 
   logout(): Observable<any> {
